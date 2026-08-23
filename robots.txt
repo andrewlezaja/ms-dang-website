@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /privacy.html
+
+# Update the domain below once the live domain is confirmed.
+Sitemap: https://www.clearthoughtspsychiatry.com/sitemap.xml

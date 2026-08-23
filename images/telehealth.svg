@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Telepsychiatry placeholder">
+  <defs>
+    <linearGradient id="tbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e6f0ee"/>
+      <stop offset="1" stop-color="#f7f1e8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#tbg)"/>
+  <circle cx="150" cy="180" r="130" fill="#2a9d8f" opacity="0.10"/>
+  <circle cx="660" cy="800" r="170" fill="#b0855c" opacity="0.11"/>
+  <rect x="150" y="330" width="500" height="340" rx="26" fill="#ffffff" opacity="0.9"/>
+  <rect x="182" y="362" width="436" height="256" rx="14" fill="#d8eae7"/>
+  <circle cx="400" cy="452" r="46" fill="#14615c" opacity="0.28"/>
+  <path d="M400 512c-52 0-95 34-102 79a6 6 0 0 0 6 7h192a6 6 0 0 0 6-7c-7-45-50-79-102-79z" fill="#14615c" opacity="0.28"/>
+  <rect x="330" y="700" width="140" height="14" rx="7" fill="#14615c" opacity="0.2"/>
+  <text x="400" y="880" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif"
+        font-size="30" font-weight="600" fill="#14615c" opacity="0.5" letter-spacing="3">
+    ADD TELEHEALTH PHOTO
+  </text>
+</svg>
