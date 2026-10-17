@@ -274,6 +274,11 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
   font-size: .66rem; font-weight: 600; letter-spacing: .16em;
   text-transform: uppercase; color: var(--accent);
 }
+.logo__slogan {
+  margin-top: 3px;
+  font-size: .72rem; font-style: italic; color: var(--muted);
+  white-space: nowrap;
+}
 
 /* Desktop nav */
 .nav { display: flex; align-items: center; gap: 2px; }
@@ -358,11 +363,29 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
   padding: clamp(52px, 6vw, 92px) 0 clamp(56px, 6vw, 96px);
   overflow: hidden;
 }
+.hero--photo {
+  background:
+    linear-gradient(90deg, rgba(250,247,243,.97) 0%, rgba(250,247,243,.9) 42%, rgba(250,247,243,.45) 100%),
+    url("../images/home-forest.jpg") center / cover no-repeat,
+    var(--cream);
+}
+@media (max-width: 900px) {
+  .hero--photo {
+    background:
+      linear-gradient(rgba(250,247,243,.82), rgba(250,247,243,.95)),
+      url("../images/home-forest.jpg") center / cover no-repeat,
+      var(--cream);
+  }
+}
 .hero__grid {
   display: grid; grid-template-columns: 1.06fr .94fr;
   gap: clamp(32px, 5vw, 72px); align-items: center;
 }
 .hero h1 { margin-bottom: 22px; }
+.hero__sub {
+  font-family: var(--font-head); font-weight: 600; color: var(--primary);
+  font-size: clamp(1.1rem, 1rem + .4vw, 1.3rem); margin-bottom: 14px;
+}
 .hero__lede { font-size: clamp(1.03rem, .98rem + .3vw, 1.19rem); max-width: 56ch; }
 .hero .btn-row { margin-top: 34px; }
 

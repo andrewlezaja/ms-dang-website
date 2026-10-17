@@ -26,7 +26,7 @@ privacy.html      Website privacy policy (needs legal review — see below)
 404.html          Not-found page
 css/styles.css    Entire design system, single file
 js/main.js        Nav, accordion, scroll reveal, form handling
-images/           SVG placeholders — replace with real photography
+images/           provider.jpg, home-forest.jpg, about-stones.jpg + SVG placeholders
 robots.txt        Update domain before launch
 sitemap.xml       Update domain and dates before launch
 ```
@@ -79,7 +79,6 @@ looks finished today. Swap them for real photography:
 
 | File | Used on | Suggested shot |
 |---|---|---|
-| `provider.svg` | Home hero, Home provider section, Provider page | Professional headshot of Rupi, portrait 4:5 |
 | `office.svg` | Home, About, Services | Waiting room or consultation room |
 | `telehealth.svg` | Services, Locations | Warm lifestyle shot suggesting a video visit |
 | `favicon.svg` | Browser tab | Keep — it's the real logo mark |

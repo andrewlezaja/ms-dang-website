@@ -1,0 +1,42 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Overview
+
+Static multi-page marketing site for Clear Thoughts Psychiatry Inc. (a psychiatric practice with offices in Fairfield, NJ and Warwick, NY, plus telehealth). Plain HTML/CSS/vanilla JS: no build step, no package manager, no framework, no tests. `.nojekyll` is present so it can be served as-is from GitHub Pages.
+
+## Run locally
+
+```bash
+python3 -m http.server 8000   # then open http://localhost:8000
+```
+
+## Architecture
+
+- **No templating layer.** The header, footer, and crisis strip are copy-pasted into every top-level `.html` file, between comments like `<!-- ================= HEADER ================= -->`. Any change to shared chrome (nav links, phone numbers, footer text, crisis resources) must be applied to every page, including `404.html` and `privacy.html`.
+- **`css/styles.css`** is the whole design system in one file. Design tokens (colors, fonts, radii, shadows, layout) are CSS custom properties on `:root` at the top; reskinning is done there (`--bronze`, `--teal-800`). Fonts are DM Sans (headings) and Mulish (body) from Google Fonts.
+- **`js/main.js`** is one IIFE of progressive enhancements. Every page must stay usable with JS disabled. It handles:
+  - mobile nav (`.nav-toggle` / `.nav`, breakpoint 981px)
+  - FAQ accordion (`.acc-btn` with `aria-controls`; a URL hash matching an `.acc-item` id opens that item)
+  - scroll reveal (`[data-reveal]`, optional `data-reveal-delay`; skipped under `prefers-reduced-motion`)
+  - footer year (`[data-year]`)
+  - the `#appointment-form` on `contact.html`. It validates client-side, uses the `_gotcha` honeypot, and POSTs `FormData` via fetch to the form's `action`. While `action` still contains `REPLACE_WITH`, it shows a "call us instead" message instead of submitting.
+- **SEO metadata is per page.** Each page has its own title, meta description, canonical URL, and Open Graph tags. Some pages also carry JSON-LD (`MedicalBusiness`, `Person`, `FAQPage` in `faq.html`). If you edit FAQ text, update the matching `FAQPage` JSON-LD in `faq.html` so they stay in sync.
+- **Placeholder domain.** `https://www.clearthoughtspsychiatry.com` is hard-coded in canonical/OG/JSON-LD tags, `robots.txt`, and `sitemap.xml`. When you add a page, also add it to `sitemap.xml`.
+
+## Content constraints
+
+- **Phone numbers are duplicated** across pages and inside `js/main.js` status messages: Fairfield 551-250-3868 (fax 551-202-7409), Warwick 845-545-5444 (fax 845-213-4794). Update all of them together.
+- **The crisis strip** (911, 988, Crisis Text Line, Bergen County 262-HELP) is required on every page. Do not remove it.
+- **The appointment form collects contact details only.** It is not HIPAA-compliant. Do not add fields that collect clinical or health information.
+- **Insurance positioning is in-network**, with self-pay as a secondary option. The two places that must agree are `insurance.html` (`#plans`) and `faq.html` (the `#insurance` accordion item).
+- **Use "Perinatal / Postpartum Mood Disorders"**, not "Postpartum Depression", in condition lists.
+
+## Pre-launch TODOs (tracked in README.md)
+
+- Form endpoint: `REPLACE_WITH_FORM_ENDPOINT` in `contact.html`.
+- Practice email: search `TODO: Add the practice email`.
+- `office.svg` and `telehealth.svg` in `images/` are still placeholders (Services, Locations). Keep `favicon.svg`. The real photos are `provider.jpg`, `home-forest.jpg` (Home hero background via `.hero--photo`), and `about-stones.jpg`.
+- Real domain to be set.
+- `privacy.html` needs `[EFFECTIVE DATE]` filled in and legal review.
