@@ -6,11 +6,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Static multi-page marketing site for Clear Thoughts Psychiatry Inc. (a psychiatric practice with offices in Fairfield, NJ and Warwick, NY, plus telehealth). Plain HTML/CSS/vanilla JS: no build step, no package manager, no framework, no tests. `.nojekyll` is present so it can be served as-is from GitHub Pages.
 
+**Deploys:** Netlify is connected to this GitHub repo and auto-deploys every push to `main`, so a push is a release to the live site. (GitHub Pages is still enabled but is being retired.)
+
 ## Run locally
 
 ```bash
 python3 -m http.server 8000   # then open http://localhost:8000
 ```
+
+When checking pages with headless Chrome screenshots, `[data-reveal]` content stays faded because it never scrolls into view. Inject `[data-reveal]{opacity:1!important;transform:none!important}` to see it. Headless Chrome also won't go below a 500px viewport, so narrower window sizes misrepresent mobile layout.
 
 ## Architecture
 
@@ -31,6 +35,7 @@ python3 -m http.server 8000   # then open http://localhost:8000
 - **The crisis strip** (911, 988, Crisis Text Line, Bergen County 262-HELP) is required on every page. Do not remove it.
 - **The appointment form collects contact details only.** It is not HIPAA-compliant. Do not add fields that collect clinical or health information.
 - **Insurance positioning is in-network**, with self-pay as a secondary option. The two places that must agree are `insurance.html` (`#plans`) and `faq.html` (the `#insurance` accordion item).
+- **The full conditions list lives only in `services.html#conditions`.** Other pages link to it rather than repeating it. The provider page's "Areas of Clinical Focus" is a separate, shorter list.
 - **Use "Perinatal / Postpartum Mood Disorders"**, not "Postpartum Depression", in condition lists.
 
 ## Pre-launch TODOs (tracked in README.md)
@@ -38,5 +43,6 @@ python3 -m http.server 8000   # then open http://localhost:8000
 - Form endpoint: `REPLACE_WITH_FORM_ENDPOINT` in `contact.html`.
 - Practice email: search `TODO: Add the practice email`.
 - `office.svg` and `telehealth.svg` in `images/` are still placeholders (Services, Locations). Keep `favicon.svg`. The real photos are `provider.jpg`, `home-forest.jpg` (Home hero background via `.hero--photo`), and `about-stones.jpg`.
+- Provider profile links: `REPLACE_WITH_PSYCHOLOGY_TODAY_URL` and `REPLACE_WITH_HEADWAY_URL` in `provider.html`.
 - Real domain to be set.
 - `privacy.html` needs `[EFFECTIVE DATE]` filled in and legal review.
