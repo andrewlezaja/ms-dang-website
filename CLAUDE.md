@@ -37,14 +37,14 @@ When checking pages with headless Chrome screenshots, `[data-reveal]` content st
 - **Insurance positioning is in-network**, with self-pay as a secondary option. The two places that must agree are `insurance.html` (`#plans`) and `faq.html` (the `#insurance` accordion item).
 - **The full carrier list lives in `insurance.html#plans`** (Home shows the same names as a logo strip). The FAQ names only a few carriers and links to the full list.
 - **The first-visit checklist (what to bring) lives only in `faq.html#first-visit`.** Locations links to it. The "what happens next" steps live only on `contact.html`, and the care process steps only on `about.html`.
-- **The full conditions list lives only in `services.html#conditions`.** Other pages link to it rather than repeating it. The provider page's "Areas of Clinical Focus" is a separate, shorter list.
+- **The full conditions list lives only in `services.html#conditions`** (a card beside Psychiatric Evaluations). Other pages link to it rather than repeating it. The provider page's "Areas of Clinical Focus" is a separate, shorter list.
 - **Use "Perinatal / Postpartum Mood Disorders"**, not "Postpartum Depression", in condition lists.
 
 ## Pre-launch TODOs (tracked in README.md)
 
 - Form endpoint: `REPLACE_WITH_FORM_ENDPOINT` in `contact.html`.
 - Practice email: search `TODO: Add the practice email`.
-- `office.svg` and `telehealth.svg` in `images/` are still placeholders (Services, Locations). Keep `favicon.svg`. The real photos are `provider.jpg`, `home-forest.jpg` (Home hero background via `.hero--photo`), and `about-stones.jpg`.
+- `telehealth.svg` in `images/` is still a placeholder (Services, Locations). `office.svg` is no longer used on any page. Keep `favicon.svg`. The real photos are `provider.jpg`, `home-forest.jpg` (Home hero background via `.hero--photo`), and `about-stones.jpg`.
 - Provider profile links: `REPLACE_WITH_PSYCHOLOGY_TODAY_URL` and `REPLACE_WITH_HEADWAY_URL` in `provider.html`.
 - Real domain to be set.
 - `privacy.html` needs `[EFFECTIVE DATE]` filled in and legal review.
