@@ -88,18 +88,11 @@
         </div>
 
         <!--
-          ═══════════════════════════════════════════════════════════════════
-          SET THE FORM ENDPOINT BELOW BEFORE GOING LIVE. See README.md.
-
-          Formspree:      action="https://formspree.io/f/YOUR_FORM_ID"
-          Netlify Forms:  add  netlify  and  name="appointment"  attributes
-          Custom backend: action="/api/appointment-request"
-
-          Until this is set, the form shows a message directing visitors to
-          call the office instead of failing silently.
-          ═══════════════════════════════════════════════════════════════════
+          Submissions go to Formspree, which emails them to the practice.
+          The recipient address is set in the Formspree dashboard. See README.md.
         -->
-        <form id="appointment-form" action="REPLACE_WITH_FORM_ENDPOINT" method="POST" novalidate>
+        <form id="appointment-form" action="https://formspree.io/f/xkjjapnl" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="New appointment request – Clear Thoughts website">
           <div class="form-grid">
             <div class="field">
               <label for="firstName">First name <span class="req">*</span></label>

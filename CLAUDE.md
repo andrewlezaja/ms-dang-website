@@ -25,7 +25,7 @@ When checking pages with headless Chrome screenshots, `[data-reveal]` content st
   - FAQ accordion (`.acc-btn` with `aria-controls`; a URL hash matching an `.acc-item` id opens that item)
   - scroll reveal (`[data-reveal]`, optional `data-reveal-delay`; skipped under `prefers-reduced-motion`)
   - footer year (`[data-year]`)
-  - the `#appointment-form` on `contact.html`. It validates client-side, uses the `_gotcha` honeypot, and POSTs `FormData` via fetch to the form's `action`. While `action` still contains `REPLACE_WITH`, it shows a "call us instead" message instead of submitting.
+  - the `#appointment-form` on `contact.html`. It validates client-side, uses the `_gotcha` honeypot, and POSTs `FormData` via fetch (with `Accept: application/json`) to the form's `action`, a **Formspree** endpoint. Formspree emails each submission to the practice; the recipient is set in the Formspree dashboard, not in code. A hidden `_subject` input sets the email subject, and the `email` field becomes the reply-to. If you add or rename fields, Formspree picks them up automatically.
 - **SEO metadata is per page.** Each page has its own title, meta description, canonical URL, and Open Graph tags. Some pages also carry JSON-LD (`MedicalBusiness`, `Person`, `FAQPage` in `faq.html`). If you edit FAQ text, update the matching `FAQPage` JSON-LD in `faq.html` so they stay in sync.
 - **Placeholder domain.** `https://www.clearthoughtspsychiatry.com` is hard-coded in canonical/OG/JSON-LD tags, `robots.txt`, and `sitemap.xml`. When you add a page, also add it to `sitemap.xml`.
 
@@ -42,7 +42,6 @@ When checking pages with headless Chrome screenshots, `[data-reveal]` content st
 
 ## Pre-launch TODOs (tracked in README.md)
 
-- Form endpoint: `REPLACE_WITH_FORM_ENDPOINT` in `contact.html`.
 - Practice email: search `TODO: Add the practice email`.
 - `office.svg` and `telehealth.svg` in `images/` are unused placeholders. Keep `favicon.svg`. The real photos are `provider.jpg`, `home-forest.jpg` (Home hero background via `.hero--photo`), `about-sunset.jpg` (About), and `telehealth.jpg` (Services and Locations; landscape, shown in a 4:3 `.split__frame--landscape` with `object-position`).
 - Provider profile links: `REPLACE_WITH_PSYCHOLOGY_TODAY_URL` and `REPLACE_WITH_HEADWAY_URL` in `provider.html`.

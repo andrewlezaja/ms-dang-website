@@ -120,10 +120,9 @@
   /* ---------------------------------------------------------------------
      Appointment request form
      ---------------------------------------------------------------------
-     The form posts to whatever endpoint is set in the <form action="...">
-     attribute. See README.md — configure Formspree / Netlify Forms / your
-     own handler there. Until an endpoint is configured the script shows a
-     clear message rather than silently failing.
+     Submits to the Formspree endpoint in the form's action via fetch so the
+     visitor stays on the page. Without JS the browser posts the form and
+     Formspree shows its own confirmation page.
      --------------------------------------------------------------------- */
   var form = document.getElementById('appointment-form');
   if (form) {
@@ -205,20 +204,10 @@
       var hp = form.querySelector('input[name="_gotcha"]');
       if (hp && hp.value) { form.reset(); return; }
 
-      var action = form.getAttribute('action');
-      if (!action || action.indexOf('REPLACE_WITH') !== -1) {
-        showStatus(
-          'This form is not connected to a delivery service yet. ' +
-          'Please call 551-250-3868 to reach the Fairfield office, or 845-545-5444 for Warwick.',
-          false
-        );
-        return;
-      }
-
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
       if (status) status.className = 'form-status';
 
-      fetch(action, {
+      fetch(form.getAttribute('action'), {
         method: 'POST',
         body: new FormData(form),
         headers: { Accept: 'application/json' }

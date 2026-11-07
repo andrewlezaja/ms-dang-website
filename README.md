@@ -39,32 +39,22 @@ in each HTML file. **If you change one, change all of them.** They are delimited
 
 ## Before launch — required
 
-### 1. Connect the appointment form
+### 1. Appointment form email (Formspree)
 
-`contact.html` line with `action="REPLACE_WITH_FORM_ENDPOINT"`. Until this is set, the
-form validates but shows visitors a message telling them to call instead — it never
-silently drops a submission.
+The form on `contact.html` posts to the Formspree endpoint
+`https://formspree.io/f/xkjjapnl`, which emails each request to the address set in the
+Formspree dashboard (`rupiapn@clearthoughtspsychiatry.com`). Replying to the
+notification email replies to the patient. Submissions are also listed in the Formspree
+dashboard. The `_gotcha` honeypot field screens out bots.
 
-**Formspree** (easiest, no server):
-```html
-<form id="appointment-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
-```
-
-**Netlify Forms** (if hosting on Netlify) — add two attributes and remove the JS
-dependency by deleting the `action`:
-```html
-<form id="appointment-form" name="appointment" method="POST" data-netlify="true" novalidate>
-  <input type="hidden" name="form-name" value="appointment">
-```
-
-A honeypot field (`_gotcha`) is already in place for spam. Formspree and Netlify both
-recognize this convention.
+To change the recipient, subject, or spam settings, use the Formspree dashboard, not
+the code. The free plan has a monthly submission cap; check it in the dashboard.
 
 > **HIPAA note:** the form deliberately collects only contact details and warns visitors
-> not to send health information. Standard Formspree/Netlify Forms are **not** HIPAA
-> business associates. If the practice ever wants patients to submit clinical details
-> through the site, that must move to a HIPAA-compliant intake platform under a BAA
-> (SimplePractice, Luminello, IntakeQ, Jotform HIPAA, etc.).
+> not to send health information. Netlify Forms is **not** a HIPAA business associate.
+> If the practice ever wants patients to submit clinical details through the site, that
+> must move to a HIPAA-compliant intake platform under a BAA (SimplePractice, Luminello,
+> IntakeQ, Jotform HIPAA, etc.).
 
 ### 2. Fill in the missing email address
 
