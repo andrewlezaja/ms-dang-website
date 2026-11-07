@@ -35,6 +35,8 @@ When checking pages with headless Chrome screenshots, `[data-reveal]` content st
 - **The crisis strip** (911, 988, Crisis Text Line, Bergen County 262-HELP) is required on every page. Do not remove it.
 - **The appointment form collects contact details only.** It is not HIPAA-compliant. Do not add fields that collect clinical or health information.
 - **Insurance positioning is in-network**, with self-pay as a secondary option. The two places that must agree are `insurance.html` (`#plans`) and `faq.html` (the `#insurance` accordion item).
+- **The full carrier list lives in `insurance.html#plans`** (Home shows the same names as a logo strip). The FAQ names only a few carriers and links to the full list.
+- **The first-visit checklist (what to bring) lives only in `faq.html#first-visit`.** Locations links to it. The "what happens next" steps live only on `contact.html`, and the care process steps only on `about.html`.
 - **The full conditions list lives only in `services.html#conditions`.** Other pages link to it rather than repeating it. The provider page's "Areas of Clinical Focus" is a separate, shorter list.
 - **Use "Perinatal / Postpartum Mood Disorders"**, not "Postpartum Depression", in condition lists.
 
