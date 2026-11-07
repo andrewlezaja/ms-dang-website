@@ -44,7 +44,7 @@ When checking pages with headless Chrome screenshots, `[data-reveal]` content st
 
 - Form endpoint: `REPLACE_WITH_FORM_ENDPOINT` in `contact.html`.
 - Practice email: search `TODO: Add the practice email`.
-- `telehealth.svg` in `images/` is still a placeholder (Services, Locations). `office.svg` is no longer used on any page. Keep `favicon.svg`. The real photos are `provider.jpg`, `home-forest.jpg` (Home hero background via `.hero--photo`), and `about-stones.jpg`.
+- `office.svg` and `telehealth.svg` in `images/` are unused placeholders. Keep `favicon.svg`. The real photos are `provider.jpg`, `home-forest.jpg` (Home hero background via `.hero--photo`), `about-stones.jpg`, and `telehealth.jpg` (Services and Locations; landscape, shown in a 4:3 `.split__frame--landscape` with `object-position`).
 - Provider profile links: `REPLACE_WITH_PSYCHOLOGY_TODAY_URL` and `REPLACE_WITH_HEADWAY_URL` in `provider.html`.
 - Real domain to be set.
 - `privacy.html` needs `[EFFECTIVE DATE]` filled in and legal review.
