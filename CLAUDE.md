@@ -44,6 +44,6 @@ When checking pages with headless Chrome screenshots, `[data-reveal]` content st
 
 - Practice email: search `TODO: Add the practice email`.
 - `office.svg` and `telehealth.svg` in `images/` are unused placeholders. Keep `favicon.svg`. The real photos are `provider.jpg`, `home-forest.jpg` (Home hero background via `.hero--photo`), `about-sunset.jpg` (About), and `telehealth.jpg` (Services and Locations; landscape, shown in a 4:3 `.split__frame--landscape` with `object-position`).
-- Provider profile links: `REPLACE_WITH_PSYCHOLOGY_TODAY_URL` and `REPLACE_WITH_HEADWAY_URL` in `provider.html`.
+- Provider profile links (Psychology Today, Headway) were removed from `provider.html` because the URLs were never provided. Re-add a "Find Me Online" section once real profile URLs exist.
 - Real domain to be set.
 - `privacy.html` needs `[EFFECTIVE DATE]` filled in and legal review.
