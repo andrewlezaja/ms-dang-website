@@ -174,7 +174,11 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
   .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 620px) {
-  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .grid-4 { gap: 16px; }
+}
+@media (max-width: 440px) {
+  .grid-4 { grid-template-columns: 1fr; }
 }
 
 /* --------------------------------------------------------------------------
@@ -422,6 +426,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
   color: var(--ink); margin-bottom: 2px;
 }
 .hero__card span { font-size: .84rem; color: var(--muted); line-height: 1.5; display: block; }
+.hero__card-link { display: inline-block; margin-top: 8px; font-family: var(--font-head); font-weight: 600; font-size: .86rem; color: var(--teal-700); }
 
 @media (max-width: 900px) {
   .hero__grid { grid-template-columns: 1fr; }
@@ -511,11 +516,14 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
 }
 .check-list--2 { grid-template-columns: repeat(2, 1fr); gap: 12px 32px; }
 .check-list--3 { grid-template-columns: repeat(3, 1fr); gap: 12px 32px; }
+.check-list--center { max-width: 800px; margin-inline: auto; }
 @media (max-width: 860px) { .check-list--3 { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .check-list--2, .check-list--3 { grid-template-columns: 1fr; } }
 
 .section--ink .check-list li { color: rgba(255,255,255,.82); }
-.section--ink .check-list li::before { background-color: rgba(255,255,255,.14); }
+.section--ink .check-list li::before {
+  background: rgba(255,255,255,.14) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23d9b892' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center / 12px no-repeat;
+}
 
 /* Condition pills */
 .pill-grid { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -570,7 +578,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
    -------------------------------------------------------------------------- */
 .prose { max-width: 780px; }
 .prose h2 { margin-top: 2em; }
-.prose h2:first-child { margin-top: 0; }
+.prose h2:first-child, .prose .eyebrow + h2 { margin-top: 0; }
 .prose h3 { margin-top: 1.7em; }
 .prose ul li { margin-bottom: .5em; }
 .prose > :last-child { margin-bottom: 0; }
@@ -585,6 +593,12 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
 .callout p { font-size: .97rem; margin-bottom: .8em; }
 .callout > :last-child { margin-bottom: 0; }
 .callout--bronze { background: var(--bronze-100); border-left-color: var(--bronze); }
+.callout__title { font-size: 1.15rem; margin-bottom: 10px; }
+
+/* Conditions list card (Services) */
+.conditions-card { padding: clamp(24px, 3.5vw, 44px); margin-top: clamp(32px, 4vw, 48px); }
+.conditions-card .conditions-card__title { font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); margin-bottom: 24px; }
+.conditions-card__note { margin: 24px 0 0; font-size: .95rem; }
 
 /* --------------------------------------------------------------------------
    9. Accordion (FAQ)
@@ -665,9 +679,10 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
 /* --------------------------------------------------------------------------
    11. Insurance logos / plan grid
    -------------------------------------------------------------------------- */
-.plan-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px;
-}
+.plan-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+.plan-grid > .plan { flex: 0 1 calc((100% - 64px) / 5); }
+@media (max-width: 980px) { .plan-grid > .plan { flex-basis: calc((100% - 32px) / 3); } }
+@media (max-width: 600px) { .plan-grid > .plan { flex-basis: calc((100% - 16px) / 2); } }
 .plan {
   background: #fff; border: 1px solid var(--line); border-radius: var(--r-sm);
   padding: 22px 18px; text-align: center;
